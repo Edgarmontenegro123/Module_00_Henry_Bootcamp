@@ -1,11 +1,11 @@
-<img  src='../logo.png' height='70px'>
+<img  src='../logo.png' height='70px' alt="">
 <table width="100%" style='table-layout:fixed;'>
   <tr>
     <td>
       <a href="https://airtable.com/shrSzEYT4idEFGB8d?prefill_clase=01-Git">
-        <img src="https://static.thenounproject.com/png/204643-200.png" width="100"/>
+        <img src="https://static.thenounproject.com/png/204643-200.png" width="100" alt=""/>
         <br>
-        Hacé click acá para dejar tu feedback sobre esta clase.
+        Hacé clic acá para dejar tu feedback sobre esta clase.
       </a>
     </td>
   </tr>
@@ -33,15 +33,15 @@ Como se pueden imaginar, este sistema funciona _bien_ para trabajar solos, pero 
 
 ![Centralizado](./img/centralizado.png)
 
-Para solventar este problema, se desarrollaron los sistemas de control de versiones centralizados (_Centralized Version Control Systems_ o __CVCSs__ en inglés). Estos sistemas, como __CVS__, __Subversion__, y __Perforce__, tienen un único servidor que contiene todos los archivos versionados, y varios clientes descargan los archivos desde ese lugar central. Durante muchos años éste ha sido el estándar para el control de versiones.
+Para solventar este problema, se desarrollaron los sistemas de control de versiones centralizados (_Centralized Version Control Systems_ o __CVCS__ en inglés). Estos sistemas, como __CVS__, __Subversion__, y __Perforce__, tienen un único servidor que contiene todos los archivos versionados, y varios clientes descargan los archivos desde ese lugar central. Durante muchos años este ha sido el estándar para el control de versiones.
 
-Este sistema ofrece varias ventajas, como por ejemplo: Todo el mundo puede saber en qué están trabajando los demás colaboradores y los administradores tienen control sobre qué archivos pueden ver/modificar cada colaborador. Pero tambien presenta un _problema importante_:  que hay un __punto único de fallo__. ¿Si éste server se cae? Nadie puede seguir trabajando ni trackeando sus cambios. ¿O si se rompe y no hay backups? Se pierde absolutamente _todo_ el trabajo realizado.
+Este sistema ofrece varias ventajas, como por ejemplo: Todo el mundo puede saber en qué están trabajando los demás colaboradores y los administradores tienen control sobre qué archivos pueden ver/modificar cada colaborador. Pero también presenta un _problema importante_: que hay un __punto único de fallo__. ¿Si este server se cae? Nadie puede seguir trabajando ni trackeando sus cambios. ¿O si se rompe y no hay backups? Se pierde absolutamente _todo_ el trabajo realizado.
 
 ### Distribuido
 
 ![Distribuido](./img/distribuido.png)
 
-Es aquí donde entran los sistemas de control de versiones distribuidos (_Distributed Version Control Systems_ o __DVCSs__ en inglés). En un DVCS (como __Git__, __Mercurial__, __Bazaar__ o __Darcs__), los clientes no sólo descargan la última instantánea de los archivos: replican completamente el repositorio. Así, si un servidor muere, y estos sistemas estaban colaborando a través de él, cualquiera de los repositorios de los clientes puede copiarse en el servidor para restaurarlo.
+Es aquí donde entran los sistemas de control de versiones distribuidos (_Distributed Version Control Systems_ o __DVCS__ en inglés). En un DVCS (como __Git__, __Mercurial__, __Bazaar__ o __Darcs__), los clientes no solo descargan la última instantánea de los archivos: replican completamente el repositorio. Así, si un servidor muere, y estos sistemas estaban colaborando a través de él, cualquiera de los repositorios de los clientes puede copiarse en el servidor para restaurarlo.
 
 ## Historia de Git
 
@@ -59,17 +59,17 @@ Desde su nacimiento en 2005, Git ha evolucionado y madurado para ser fácil de u
 
 ## Conceptos de Git
 
-Git modela sus datos como un conjunto de instantáneas de un mini sistema de archivos. Cada vez que confirmas un cambio, o guardas el estado de tu proyecto en Git, él básicamente hace una foto del aspecto de todos tus archivos en ese momento, y guarda una referencia a esa instantánea. Para ser eficiente, si los archivos no se han modificado, Git no almacena el archivo de nuevo, sólo un enlace al archivo anterior idéntico que ya tiene almacenado.
+Git modela sus datos como un conjunto de instantáneas de un mini sistema de archivos. Cada vez que confirmas un cambio, o guardas el estado de tu proyecto en Git, él básicamente hace una foto del aspecto de todos tus archivos en ese momento, y guarda una referencia a esa instantánea. Para ser eficiente, si los archivos no se han modificado, Git no almacena el archivo de nuevo, solo un enlace al archivo anterior idéntico que ya tiene almacenado.
 
 ![snapshots](./img/snapshots.png)
 
-La mayoría de las operaciones en Git sólo necesitan archivos y recursos locales para operar. Por lo general no se necesita información de ningún otro ordenador de tu red. Como tienes toda la historia del proyecto ahí mismo, en tu disco local, la mayoría de las operaciones parecen prácticamente inmediatas (con otros sistemas el proceso involucra llamados por red que generan retardos importantes).
+La mayoría de las operaciones en Git solo necesitan archivos y recursos locales para operar. Por lo general no se necesita información de ningún otro ordenador de tu red. Como tienes toda la historia del proyecto ahí mismo, en tu disco local, la mayoría de las operaciones parecen prácticamente inmediatas (con otros sistemas el proceso involucra llamados por red que generan retardos importantes).
 
 ## Integridad
 
 Todo en Git es verificado mediante una suma de comprobación (__checksum__ en inglés) antes de ser almacenado, y es identificado a partir de ese momento mediante dicha suma. __Esto significa que es imposible cambiar los contenidos de cualquier archivo o directorio sin que Git lo sepa.__
 
-El mecanismo que usa Git para generar esta suma de comprobación se conoce como hash SHA-1. Se trata de una cadena de 40 caracteres hexadecimales (0-9 y a-f), y se calcula en base a los contenidos del archivo o estructura de directorios. Un hash SHA-1 tiene esta pinta:
+El mecanismo que usa Git para generar esta suma de comprobación se conoce como hash SHA-1. Se trata de una cadena de 40 caracteres hexadecimales (0-9 y a-f), y se calcula con base en los contenidos del archivo o estructura de directorios. Un hash SHA-1 tiene esta pinta:
 
 ```
 24b9da6552252987aa493b52f8696cd6d3b00373
@@ -84,16 +84,16 @@ Vamos a distinguir dos directorios, primero el _directorio de git_: que es donde
 Git tiene tres estados principales en los que se pueden encontrar tus archivos:
 * __committed__: significa que los datos están almacenados de manera segura en tu base de datos local.
 * __modified__: significa que has modificado el archivo pero todavía no lo has commiteado a tu base de datos.
-* __staged__: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima commiteada.
+* __staged__: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próximo commit.
 
 ![Estados](./img/estados.png)
 
-Hay un archivo simple, generalmente contenido en tu directorio de Git, llamado que almacena información acerca de lo que va a ir en tu próxima confirmación, al contenido de este archivo. O al archivo mismo se lo conoce como __staging area__.
+Hay un archivo simple, generalmente contenido en tu directorio de Git, llamado que almacena información acerca de lo que va a ir en tu próxima confirmación, al contenido de este archivo. O al archivo mismo se lo conoce como __staging área__.
 
 Sabiendo esto, el flujo de trabajo básico en Git sería algo así:
 
 * Modificas una serie de archivos en tu _directorio de trabajo_.
-* _Stageas_ los archivos, añadiendolos a tu __staging area__ o área de preparación.
+* _Stageas_ los archivos, añadiéndolos a tu __staging área__ o área de preparación.
 * Commiteas o Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y almacena esas instantáneas de manera permanente en tu directorio de Git.
 
 > Si una versión concreta de un archivo está en el directorio de Git, se considera confirmada (__committed__). Si ha sufrido cambios desde que se obtuvo del repositorio, y ha sido añadida al área de preparación, está preparada (__staged__). Y si ha sufrido cambios desde que se obtuvo del repositorio, pero no se ha preparado (no se incluyó en el área de preparación), está modificada (__modified__).
@@ -105,7 +105,7 @@ Sabiendo esto, el flujo de trabajo básico en Git sería algo así:
 ## Lectura recomendada:
 
 * [Git: sitio oficial](https://git-scm.com/)
-* [Github: tutorial oficial](https://try.github.io/levels/1/challenges/1)
+* [GitHub: tutorial oficial](https://try.github.io/levels/1/challenges/1)
 * [Git: tutorial oficial](https://git-scm.com/docs/gittutorial)
-* [Terminal turorial](https://www.davidbaumgold.com/tutorials/command-line/)
+* [Terminal tutorial](https://www.davidbaumgold.com/tutorials/command-line/)
 
